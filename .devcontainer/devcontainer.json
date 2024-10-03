@@ -21,6 +21,11 @@
 			"plugins": "git git-flow F-Sy-H zsh-autosuggestions zsh-completions"
 		}
 	}
+	// "customizations": {
+	// 	"vscode": {
+	// 		"extensions": [{"ID": 1}]
+	// 	}
+	// }
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
