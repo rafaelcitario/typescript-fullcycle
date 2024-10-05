@@ -11,11 +11,11 @@ export type CategoryCreateCommand = {
   is_active?: boolean
 }
 export class Category {
-  private category_id: string
-  private name: string
-  private description: string | null
-  private is_active: boolean
-  private created_at: Date
+  public category_id: string
+  public name: string
+  public description: string | null
+  public is_active: boolean
+  public created_at: Date
 
   constructor (props: CategoryConstructorProps) {
     const { category_id, name, description, is_active, created_at } = props
