@@ -1,10 +1,19 @@
 import { Category } from "../category.entity";
 describe("Category Entity Unit Tests", () => {
   // suite test 1
+<<<<<<< HEAD
 
   describe("Create a new category using constructor", () => {
     describe("it should test constructor", () => {
       it("should create a category with default values", () => {
+=======
+<<<<<<< HEAD
+  describe("Create a new category using constructor", () => {
+=======
+  describe("it should test constructor", () => {
+>>>>>>> 3f1972289e42a30e70b22c22cc833dc72f606832
+    it("should create a category with default values", () => {
+>>>>>>> f5e061337c1681245aebf0909e142520f60601ff
       // Arrange
         const arrange: Object = {}
 
@@ -31,6 +40,7 @@ describe("Category Entity Unit Tests", () => {
           created_at,
         })
 
+<<<<<<< HEAD
         expect(category.category_id).not.toBeUndefined()
         expect(category.name).toBe("Drama Movie")
         expect(category.description).toBe("Drama Movie Description")
@@ -54,6 +64,19 @@ describe("Category Entity Unit Tests", () => {
     })
     // suite test 3
     describe("Create a new category and change values", () => {
+=======
+      expect(category.category_id).not.toBeUndefined();
+      expect(category.name).toBe("Drama Movie");
+      expect(category.description).toBe("Drama Movie Description");
+      expect(category.is_active).toBeFalsy();
+      expect(category.created_at).toEqual(created_at);
+    });
+  });
+<<<<<<< HEAD
+  // suite test 2
+  describe("Create a new category with create command", () => {
+    it("should create a new category with name only", () => {
+>>>>>>> f5e061337c1681245aebf0909e142520f60601ff
       const category = Category.create({
         name: "Comedy Movie",
         description: "This is a funny movie",
@@ -91,4 +114,10 @@ describe("Category Entity Unit Tests", () => {
       })
     })
   })
+<<<<<<< HEAD
 })
+=======
+=======
+>>>>>>> 3f1972289e42a30e70b22c22cc833dc72f606832
+});
+>>>>>>> f5e061337c1681245aebf0909e142520f60601ff
