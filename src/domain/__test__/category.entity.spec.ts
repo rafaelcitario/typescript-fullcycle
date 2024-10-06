@@ -1,7 +1,11 @@
 import { Category } from "../category.entity";
 describe("Category Entity Unit Tests", () => {
   // suite test 1
+<<<<<<< HEAD
   describe("Create a new category using constructor", () => {
+=======
+  describe("it should test constructor", () => {
+>>>>>>> 3f1972289e42a30e70b22c22cc833dc72f606832
     it("should create a category with default values", () => {
       // Arrange
       const arrange: Object = {};
@@ -36,6 +40,7 @@ describe("Category Entity Unit Tests", () => {
       expect(category.created_at).toEqual(created_at);
     });
   });
+<<<<<<< HEAD
   // suite test 2
   describe("Create a new category with create command", () => {
     it("should create a new category with name only", () => {
@@ -88,4 +93,6 @@ describe("Category Entity Unit Tests", () => {
       })
     })
   })
+=======
+>>>>>>> 3f1972289e42a30e70b22c22cc833dc72f606832
 });
