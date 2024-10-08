@@ -1,4 +1,6 @@
+import { Uuid } from "../../../shared/domain/value-objects/uuid.vo"
 import { Category } from "../category.entity"
+
 describe("Category Entity Unit Tests", () => {
   // suite test 1
   describe("Create a new category using constructor", () => {
@@ -12,7 +14,7 @@ describe("Category Entity Unit Tests", () => {
       })
 
       // Assert
-      expect(category.category_id).toBeUndefined()
+      expect(category.category_id).toBeDefined()
       expect(category.name).toBe("Movie")
       expect(category.description).toBeNull()
       expect(category.is_active).toBeTruthy()
@@ -22,14 +24,14 @@ describe("Category Entity Unit Tests", () => {
     it("should create another category with different values", () => {
       const created_at = new Date()
       const category = new Category({
-        category_id: "1",
+        category_id: new Uuid(),
         name: "Drama Movie",
         description: "Drama Movie Description",
         is_active: false,
         created_at,
       })
 
-      expect(category.category_id).not.toBeUndefined()
+      expect(category.category_id).toBeDefined()
       expect(category.name).toBe("Drama Movie")
       expect(category.description).toBe("Drama Movie Description")
       expect(category.is_active).toBeFalsy()
@@ -43,7 +45,7 @@ describe("Category Entity Unit Tests", () => {
         name: "Terror Movie",
       })
 
-      expect(category.category_id).toBeUndefined()
+      expect(category.category_id).toBeDefined()
       expect(category.name).toStrictEqual("Terror Movie")
       expect(category.description).toBeNull()
       expect(category.is_active).toBeTruthy()
@@ -69,6 +71,7 @@ describe("Category Entity Unit Tests", () => {
       expect(category.description).toStrictEqual("The cats is so funny")
     })
   })
+
   // suite test 4
   describe("Create a new category and return a JSON", () => {
     it("should return a JSON from category values", () => {
@@ -80,12 +83,29 @@ describe("Category Entity Unit Tests", () => {
       })
       const categoryJsonValue = category.toJSON()
       expect(categoryJsonValue).toMatchObject({
-        category_id: undefined,
         name: "Dogs vs Cats",
         description: 'This movies is "Animalic"',
         is_active: true,
         created_at,
       })
+      expect(categoryJsonValue)
+    })
+  })
+
+  describe("category_id field", () => {
+    const arrange = [
+      { category_id: null },
+      { category_id: undefined },
+      { category_id: new Uuid() },
+    ]
+
+    it.each(arrange)("id %j", ({ category_id }) => {
+      const category = new Category({
+        name: 'category_id field tests',
+        category_id: category_id as any
+      })
+
+      expect(category.category_id).toBeInstanceOf(Uuid)
     })
   })
 })
